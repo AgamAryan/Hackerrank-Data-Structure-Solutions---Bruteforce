@@ -1,0 +1,54 @@
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        //System.out.print("Enter stringList size : ");
+        int s=sc.nextInt();
+        String[] stringList=new String[s];
+        for(int i=0; i<s; i++){
+            stringList[i]=sc.next();
+        }
+        //System.out.println("StringList : "+Arrays.toString(stringList));
+
+        //System.out.print("Enter queries : ");
+        int q=sc.nextInt();
+        //String[] queries=new String[s];
+        String queries;
+        int[] results=new int[q];
+        int count;
+        for(int i=0; i<q; i++){
+            queries= sc.next();
+
+            count=0;
+            for(int j=0; j<s; j++){
+                if(queries.equals(stringList[j])){
+                    count++;
+                }
+            }
+//use any of upper or lower loop
+            /*int j=s;
+            while(j>0){
+                if(queries[i].equals(stringList[j-1])){
+                    count++;
+                }
+                j--;
+            }*/
+
+            if(count>0){
+                results[i]=count;
+                System.out.println(results[i]);
+            } else {
+                System.out.println("0");
+            }
+        }
+        //System.out.println("Queries : "+Arrays.toString(queries));
+        //System.out.println("ArrCount : "+Arrays.toString(results));
+
+        /*for(int i=0; i<q; i++){
+            if(results[i]>0){
+                System.out.println(results[i]);
+            } else {
+                System.out.println("0");
+            }
+        }*/
+    }
+}
