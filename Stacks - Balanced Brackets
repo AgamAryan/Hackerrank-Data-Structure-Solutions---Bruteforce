@@ -1,0 +1,56 @@
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        
+        Scanner sc=new Scanner(System.in);
+
+        //System.out.print("Enter n : ");
+        int n=sc.nextInt();
+        while(n<1 || n>1000){
+            //System.out.print("Enter again : ");
+            n=sc.nextInt();
+        }
+
+        for(int i=0; i<n; i++){
+            //System.out.print("Enter s"+(i+1) +" : ");
+            String str=sc.next();
+            while(str.length()<1 || str.length()>1000){
+                //System.out.print("Enter again : ");
+                str=sc.next();
+            }
+
+            if(ispm(str)){
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+
+        }
+        
+    }
+    
+    static boolean ispm(String s){
+        Stack<Character> st=new Stack<>();
+        for(int i=0; i<s.length(); i++){
+            char cr=s.charAt(i);
+            if(isOpening(cr)){
+                st.push(cr);
+            } else {
+                if(st.isEmpty()){
+                    return false;
+                } else if(!isMatching(st.peek(), cr)){
+                    return false;
+                } else {
+                    st.pop();
+                }
+            }
+        }
+        return st.isEmpty();
+    }
+    static boolean isOpening(char c){
+        return c=='(' || c=='{' || c=='[';
+    }
+    static boolean isMatching(char a, char b){
+        return (a=='(' && b==')') || (a=='{' && b=='}') || (a=='[' && b==']');
+    }
+    
+}
