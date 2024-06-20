@@ -1,3 +1,32 @@
+------------
+SOLUTION - 1
+------------
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        while(n<1 || n>1000) {
+            n=scan.nextInt();
+        }
+        int[] arr=new int[n];
+        for(int i=0; i<arr.length; i++) {
+            int a=scan.nextInt();
+            while(a<1 || a>10000) {
+                a=scan.nextInt();
+            }
+            arr[i]=a;
+        }
+        for(int j=arr.length-1;j>=0;j--) {
+            System.out.print(arr[j]+" ");
+        }
+    }
+}
+
+------------
+SOLUTION - 2
+------------
+
 public class Solution {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
