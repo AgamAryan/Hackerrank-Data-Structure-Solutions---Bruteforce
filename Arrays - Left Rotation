@@ -1,0 +1,22 @@
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int size=sc.nextInt();
+        int[] arr=new int[size];
+        int rotation=sc.nextInt();
+        for(int i=0; i<arr.length; i++) {
+            arr[i]=sc.nextInt();
+        }
+        int a;
+        for(int i=0; i<rotation; i++) {
+            a=arr[0];
+            for(int j=0; j<arr.length-1; j++) {
+                arr[j]=arr[j+1];
+            }
+            arr[arr.length-1]=a;
+        }
+        for (int i=0; i<arr.length; i++) {
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
